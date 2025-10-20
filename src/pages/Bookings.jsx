@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "../styles/pages/bookings.css";
-
-// Updated image imports
 import img1 from "../assets/1.jfif";
 import img2 from "../assets/2.jfif";
 import img3 from "../assets/3.jfif";
@@ -9,6 +7,10 @@ import img4 from "../assets/4.jfif";
 import img5 from "../assets/5.jfif";
 import img6 from "../assets/6.jfif";
 import img7 from "../assets/7.jfif";
+import DeliveryMap from "../components/DeliveryMap";
+import Footer from "../components/Footer";
+
+
 
 export default function Bookings() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -31,89 +33,102 @@ export default function Bookings() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const closeForm = () => setSelectedItem(null);
+
   return (
     <div className="bookings-page">
-      {/* HERO SECTION */}
-      <div className="bookings-hero">
-        <h1>Order & Experience the Taste of Culture 🍯</h1>
+      {/* HERO */}
+      <header className="bookings-hero">
+        <h1>🍯 Experience the Tradition, Feel the Vibe 💨</h1>
         <p>
-          Choose your favorite <strong>Muratina</strong> or rent a stylish{" "}
-          <strong>Hookah Pot</strong>. Freshly prepared. Delivered fast.
+          Fresh <strong>Muratina</strong> delivered to your doorstep or rent a
+          sleek <strong>Hookah Pot</strong> for your chill sessions.
         </p>
-      </div>
+      </header>
 
-      {/* PRODUCTS SECTION */}
-      <section className="product-section">
-        <h2 className="section-title">Muratina Orders</h2>
+      {/* Muratina Section */}
+      <section className="product-section muratina-section">
+        <h2 className="section-title">🥂 Muratina Orders</h2>
+        <p className="section-subtext">
+          Authentic brew of the culture — choose your preferred size.
+        </p>
         <div className="product-grid">
           {muratinaProducts.map((item) => (
             <div key={item.id} className="product-card">
-              <img src={item.img} alt={item.name} />
+              <div className="image-wrapper">
+                <img src={item.img} alt={item.name} />
+              </div>
               <h3>{item.name}</h3>
-              <p>Ksh {item.price.toLocaleString()}</p>
-              <button onClick={() => handleSelect(item)}>Order Now</button>
+              <p className="price">Ksh {item.price.toLocaleString()}</p>
+              <button onClick={() => handleSelect(item)} className="order-btn">
+                Order Now
+              </button>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="product-section">
-        <h2 className="section-title">Shisha Rentals</h2>
+      {/* Hookah Section */}
+      <section className="product-section shisha-section">
+        <h2 className="section-title">💨 Shisha Rentals</h2>
+        <p className="section-subtext">
+          Select your setup and bring the lounge experience home.
+        </p>
         <div className="product-grid">
           {shishaProducts.map((item) => (
             <div key={item.id} className="product-card">
-              <img src={item.img} alt={item.name} />
+              <div className="image-wrapper">
+                <img src={item.img} alt={item.name} />
+              </div>
               <h3>{item.name}</h3>
-              <p>Ksh {item.price.toLocaleString()}</p>
-              <button onClick={() => handleSelect(item)}>Book Pot</button>
+              <p className="price">Ksh {item.price.toLocaleString()}</p>
+              <button onClick={() => handleSelect(item)} className="order-btn">
+                Book Pot
+              </button>
             </div>
           ))}
         </div>
       </section>
 
-      {/* BOOKING FORM */}
+      {/* Booking Form Popup */}
       {selectedItem && (
-        <div className="booking-form-section">
-          <h2>Book: {selectedItem.name}</h2>
-          <p>Price: Ksh {selectedItem.price.toLocaleString()} (Delivery excluded)</p>
+        <div className="form-overlay">
+          <div className="booking-form-section">
+            <button className="close-btn" onClick={closeForm}>✕</button>
+            <h2>Booking: {selectedItem.name}</h2>
+            <p className="form-price">
+              Ksh {selectedItem.price.toLocaleString()} (Delivery excluded)
+            </p>
 
-          <form className="booking-form">
-            <div className="form-row">
-              <div className="form-group half">
-                <label>Full Name</label>
-                <input type="text" placeholder="Enter your name" required />
+            <form className="booking-form">
+              <div className="form-row">
+                <input type="text" placeholder="Full Name" required />
+                <input type="email" placeholder="Email Address" required />
               </div>
-              <div className="form-group half">
-                <label>Email</label>
-                <input type="email" placeholder="Enter your email" required />
-              </div>
-            </div>
 
-            <div className="form-row">
-              <div className="form-group half">
-                <label>Delivery Date</label>
+              <div className="form-row">
                 <input type="date" required />
-              </div>
-              <div className="form-group half">
-                <label>Delivery Time</label>
                 <input type="time" required />
               </div>
-            </div>
 
-            <div className="form-group">
-              <label>Location / Address</label>
-              <input type="text" placeholder="Where should we deliver?" required />
-            </div>
+              <input
+                type="text"
+                placeholder="Delivery Location / Address"
+                required
+              />
 
-            <div className="form-group">
-              <label>Special Notes</label>
               <textarea placeholder="Any special requests?" rows="3"></textarea>
-            </div>
 
-            <button type="submit" className="booking-btn">Confirm Booking</button>
-          </form>
+              <button type="submit" className="booking-btn">
+                Confirm Booking ✅
+              </button>
+            </form>
+          </div>
         </div>
       )}
+      <DeliveryMap />
+      <Footer/>
+
     </div>
   );
 }

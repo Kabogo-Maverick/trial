@@ -1,101 +1,110 @@
-/* ========== NAVBAR STYLING ========== */
+/* === NAVBAR BASE STYLING === */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  padding: 15px 6%;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  background-color: #ffffff;
+  color: #111;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: all 0.4s ease;
 }
 
-/* === LEFT SIDE (LOGO + TITLE) === */
+/* Container for layout */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left Side: Logo + Title */
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.7rem;
 }
 
 .navbar-logo {
-  width: 55px;
-  height: 55px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ff6b35;
-  box-shadow: 0 0 8px rgba(255, 107, 53, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar-logo:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 12px rgba(255, 107, 53, 0.5);
+  border: 2px solid #d4af37; /* gold accent */
+  box-shadow: 0 0 6px rgba(212,175,55,0.4);
 }
 
 .navbar-title {
   font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
-  color: #222;
-  text-transform: uppercase;
+  font-size: 1.4rem;
+  color: #000;
+  font-weight: 700;
   letter-spacing: 1px;
-  cursor: pointer;
-  transition: color 0.3s ease;
 }
 
-.navbar-title:hover {
-  color: #ff6b35;
-}
-
-/* === RIGHT SIDE LINKS === */
+/* === NAV LINKS === */
 .navbar-links {
   display: flex;
   gap: 2rem;
-  list-style: none;
 }
 
-.navbar-links a {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #333;
+.nav-link {
   position: relative;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
-.navbar-links a:hover {
-  color: #ff6b35;
-}
-
-/* === Underline Hover Animation === */
-.navbar-links a::after {
+.nav-link::after {
   content: "";
   position: absolute;
-  bottom: -5px;
-  left: 0;
   width: 0%;
   height: 2px;
-  background: #ff6b35;
+  left: 0;
+  bottom: -3px;
+  background: #d4af37;
   transition: width 0.3s ease;
 }
 
-.navbar-links a:hover::after {
+.nav-link:hover {
+  color: #000;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
-/* === RESPONSIVE DESIGN === */
+/* === CALL TO ACTION BUTTON === */
+.book-now-btn {
+  background-color: #d4af37;
+  color: #fff;
+  padding: 0.5rem 1.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #b9952d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .navbar {
+  .navbar-container {
     flex-direction: column;
-    gap: 10px;
+    gap: 0.7rem;
   }
-
   .navbar-links {
-    gap: 1.2rem;
     flex-wrap: wrap;
-  }
-
-  .navbar-title {
-    font-size: 1.5rem;
+    justify-content: center;
+    gap: 1rem;
   }
 }
