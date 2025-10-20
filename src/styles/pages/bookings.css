@@ -1,0 +1,187 @@
+/* =======================================
+   BOOKINGS MASTERPAGE — Nektar Ratish
+   Modern white theme with blue highlights
+   ======================================= */
+
+/* Page Layout */
+.bookings-page {
+  background: #fff;
+  color: #111;
+  font-family: "Poppins", sans-serif;
+  padding-bottom: 60px;
+}
+
+/* Hero Section */
+.bookings-hero {
+  text-align: center;
+  padding: 70px 20px 50px;
+  background: linear-gradient(180deg, #f9f9f9, #ffffff);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.bookings-hero h1 {
+  font-size: 2rem;
+  color: #0a0a0a;
+  margin-bottom: 12px;
+}
+
+.bookings-hero p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Product Sections */
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 50px 0 25px;
+  color: #0d47a1;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  padding: 0 8%;
+}
+
+.product-card {
+  background: #f9f9f9;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.product-card h3 {
+  color: #111;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.product-card p {
+  color: #007bff;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.product-card button {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.product-card button:hover {
+  background: linear-gradient(90deg, #0056b3, #003e7e);
+}
+
+/* Booking Form Section */
+.booking-form-section {
+  margin: 60px auto;
+  max-width: 700px;
+  background: #f9f9f9;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form-section h2 {
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+.booking-form-section p {
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* Form styling */
+.booking-form {
+  text-align: left;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+}
+
+/* Confirm Button */
+.booking-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.booking-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .bookings-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .booking-form-section {
+    padding: 25px;
+  }
+}
